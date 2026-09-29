@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <meta name="theme-color" content="#ead1d8" />
+  <title>CadLin — Administração</title>
+  <link rel="icon" href="../assets/CadLin_logo_wordmark.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="./admin.css" />
+</head>
+<body>
+  <main class="admin-shell">
+    <header class="admin-header">
+      <a href="../" aria-label="Voltar à página pública"><img src="../assets/CadLin_logo_wordmark.svg" alt="Cadernos de Linguística" /></a>
+      <span>ADMIN</span>
+    </header>
+    <section class="admin-card">
+      <div class="admin-card-head">
+        <div><p class="kicker">DESTAQUE DA PÁGINA</p><h1>O que deve aparecer em destaque?</h1></div>
+        <span id="connectionStatus" class="status-pill">verificando…</span>
+      </div>
+      <p class="intro-note">Os artigos e as notícias são atualizados automaticamente a partir do site da revista. Aqui você só precisa administrar o destaque.</p>
+      <form id="featuredForm" novalidate>
+        <label><span>Texto do destaque</span><textarea id="text" name="text" rows="4" maxlength="240" required placeholder="Ex.: Chamada aberta para o número temático…"></textarea><small><span id="charCount">0</span>/240</small></label>
+        <label><span>Link</span><input id="url" name="url" type="url" inputmode="url" required placeholder="https://…" /></label>
+        <label class="date-field"><span>Expira em <em>opcional</em></span><input id="expiresAt" name="expiresAt" type="date" /><small>Se ficar vazio, o destaque permanece até ser substituído ou removido.</small></label>
+        <label><span>Senha de edição</span><input id="password" name="password" type="password" autocomplete="current-password" required placeholder="Senha" /><small>A senha fica apenas nesta aba e não é gravada no site.</small></label>
+        <div id="formMessage" class="form-message" role="status" aria-live="polite"></div>
+        <div class="form-actions"><button id="saveButton" class="button primary" type="submit">Publicar destaque</button><button id="removeButton" class="button secondary" type="button">Remover destaque</button></div>
+      </form>
+    </section>
+    <section class="current-card"><p class="kicker">COMO ESTÁ AGORA</p><div id="currentFeatured" class="current-empty">Nenhum destaque publicado.</div></section>
+    <footer class="admin-footer"><a href="../" target="_blank" rel="noopener">Abrir página pública ↗</a></footer>
+  </main>
+  <script src="./admin.js" defer></script>
+</body>
+</html>
