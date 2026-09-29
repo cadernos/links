@@ -48,30 +48,40 @@ button { font: inherit; }
 }
 .header-actions {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: flex-end;
-  gap: 8px;
+  gap: 0;
   flex: 0 0 auto;
 }
 .header-control {
-  min-height: 30px;
+  min-height: 38px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border: 1px solid var(--ink-dark);
+  border-radius: 0;
   background: transparent;
   color: var(--ink-dark);
-  padding: 5px 8px;
+  padding: 0 12px;
   line-height: 1;
   font-family: ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", monospace;
-  font-size: .66rem;
+  font-size: .72rem;
+  font-weight: 400;
+  letter-spacing: 0;
   text-transform: uppercase;
   cursor: pointer;
   white-space: nowrap;
 }
+.header-control + .header-control { border-left: 0; }
 .header-control:hover,
-.header-control:focus-visible { background: var(--ink-dark); color: var(--pink); }
-.header-submit { min-width: 72px; }
+.header-control:focus-visible { background: var(--paper); color: var(--ink-dark); }
+.header-submit {
+  min-width: 88px;
+  background: var(--ink-dark);
+  color: var(--pink);
+}
+.header-submit:hover,
+.header-submit:focus-visible { background: #432a27; color: var(--pink); }
 
 .social-grid {
   display: grid;
@@ -236,13 +246,13 @@ footer p { margin: 0; text-align: right; }
     gap: 10px;
   }
   .brand img { width: min(66vw, 258px); }
-  .header-actions { gap: 5px; padding-top: 1px; }
+  .header-actions { gap: 0; padding-top: 1px; }
   .header-control {
-    min-height: 26px;
-    padding: 4px 6px;
-    font-size: .59rem;
+    min-height: 34px;
+    padding: 0 9px;
+    font-size: .61rem;
   }
-  .header-submit { min-width: 0; }
+  .header-submit { min-width: 78px; }
 
   .social-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .social-link {
@@ -276,6 +286,6 @@ footer p { margin: 0; text-align: right; }
 
 @media (max-width: 410px) {
   .brand img { width: min(62vw, 236px); }
-  .header-control { font-size: .56rem; padding-inline: 5px; }
+  .header-control { font-size: .57rem; padding-inline: 7px; }
   .social-link { font-size: .57rem; padding-inline: 6px; }
 }
