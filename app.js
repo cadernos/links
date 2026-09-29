@@ -53,10 +53,15 @@ function formatDate(dateValue, compact=false) {
   if (compact) { const month = new Intl.DateTimeFormat(lang==='pt'?'pt-BR':'en',{month:'short'}).format(d).replace('.','').toUpperCase(); return `${String(d.getDate()).padStart(2,'0')} _ ${month}`; }
   return new Intl.DateTimeFormat(lang==='pt'?'pt-BR':'en',{day:'2-digit',month:'2-digit',year:'numeric'}).format(d);
 }
-function validFeatured(item) { if (!item || !item.text || !safeHttpsUrl(item.url)) return false; if (!item.expiresAt) return true; const end=new Date(`${item.expiresAt}T23:59:59`); return Number.isNaN(end.getTime()) || new Date()<=end; }
+function featuredText(item) {
+  if (!item) return '';
+  if (lang === 'en') return item.textEn || item.text || item.textPt || '';
+  return item.textPt || item.text || item.textEn || '';
+}
+function validFeatured(item) { if (!item || !featuredText(item) || !safeHttpsUrl(item.url)) return false; if (!item.expiresAt) return true; const end=new Date(`${item.expiresAt}T23:59:59`); return Number.isNaN(end.getTime()) || new Date()<=end; }
 function renderFeatured() {
   const section=$('#featuredSection'); if (!validFeatured(featured)) { section.hidden=true; return; }
-  section.hidden=false; $('#featuredCard').href=safeHttpsUrl(featured.url); $('#featured-heading').textContent=featured.text;
+  section.hidden=false; $('#featuredCard').href=safeHttpsUrl(featured.url); $('#featured-heading').textContent=featuredText(featured);
   $('#featuredExpiry').textContent=featured.expiresAt ? `${i18n[lang].expires} ${formatDate(featured.expiresAt)}` : '';
 }
 function renderArticles() {
