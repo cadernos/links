@@ -1,0 +1,45 @@
+name: Atualizar artigos e notícias
+
+on:
+  schedule:
+    - cron: '17 07 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cadlin-content-update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Instalar dependência do coletor de notícias
+        run: python -m pip install --disable-pip-version-check beautifulsoup4==4.12.3
+      - name: Atualizar conteúdo a partir do OJS
+        id: collect
+        continue-on-error: true
+        run: python scripts/update_from_ojs.py
+      - name: Publicar apenas quando o conteúdo mudou
+        run: |
+          if git diff --quiet -- data/articles.json data/news.json; then
+            echo "Sem alterações editoriais; nenhum commit será criado."
+            exit 0
+          fi
+          git config user.name "cadlin-bot"
+          git config user.email "cadlin-bot@users.noreply.github.com"
+          git add data/articles.json data/news.json
+          git commit -m "Atualiza conteúdo automático da CadLin"
+          git push
+      - name: Sinalizar fonte desatualizada
+        if: steps.collect.outcome == 'failure'
+        run: |
+          echo "Uma fonte automática falhou e o último JSON válido excedeu o limite de 7 dias."
+          exit 1
