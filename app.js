@@ -62,7 +62,7 @@ function renderFeatured() {
 function renderArticles() {
   const root=$('#articlesList'), valid=articles.filter(a=>safeHttpsUrl(a.url));
   if (!valid.length) { root.innerHTML=`<div class="error-row">${escapeHtml(i18n[lang].articlesError)}</div>`; return; }
-  root.innerHTML=valid.slice(0,5).map(a=>`<a class="article-card" href="${safeHttpsUrl(a.url)}" target="_blank" rel="noopener"><span class="article-date">${escapeHtml(formatDate(a.date,true))}</span><span><span class="article-title">${escapeHtml(localizedTitle(a))}</span><span class="article-author">${escapeHtml((a.authors||[]).join(' · '))}</span>${a.doi?`<span class="article-doi">${escapeHtml(a.doi)}</span>`:''}</span><span class="article-arrow" aria-hidden="true">↗</span></a>`).join('');
+  root.innerHTML=valid.slice(0,10).map(a=>`<a class="article-card" href="${safeHttpsUrl(a.url)}" target="_blank" rel="noopener"><span class="article-date">${escapeHtml(formatDate(a.date,true))}</span><span><span class="article-title">${escapeHtml(localizedTitle(a))}</span><span class="article-author">${escapeHtml((a.authors||[]).join(' · '))}</span>${a.doi?`<span class="article-doi">${escapeHtml(a.doi)}</span>`:''}</span><span class="article-arrow" aria-hidden="true">↗</span></a>`).join('');
 }
 function renderNews() {
   const root=$('#newsList'), valid=news.filter(n=>safeHttpsUrl(n.url));
