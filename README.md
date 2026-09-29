@@ -33,3 +33,5 @@ Somente:
 - build do Cloudflare publica somente os arquivos necessários ao site.
 
 Consulte `DEPLOY.md` para a configuração inicial.
+
+<!-- Trigger de novo deployment de produção após configuração do KV. -->
