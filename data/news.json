@@ -1,9 +1,36 @@
 {
-  "updatedAt": "2026-09-28T00:00:00Z",
+  "updatedAt": "2026-09-29T07:03:25Z",
   "source": "https://cadernos.abralin.org/index.php/cadernos/announcement",
   "news": [
-    {"date":"2026-07-19","title":"Cadernos de Linguística joins the Open Journals Collective","url":"https://cadernos.abralin.org/index.php/cadernos/announcement/view/84"},
-    {"date":"2026-06-24","title":"Cadernos de Linguística aprovada para integrar a coleção SciELO Brasil","url":"https://cadernos.abralin.org/index.php/cadernos/announcement/view/83"},
-    {"date":"2026-05-01","title":"CadLin assina a Declaração de Estocolmo","url":"https://cadernos.abralin.org/index.php/cadernos/announcement/view/82"}
+    {
+      "date": "",
+      "title": "Read more",
+      "url": "https://cadernos.abralin.org/index.php/cadernos/announcement/view/84"
+    },
+    {
+      "date": "",
+      "title": "Read more",
+      "url": "https://cadernos.abralin.org/index.php/cadernos/announcement/view/83"
+    },
+    {
+      "date": "",
+      "title": "Read more",
+      "url": "https://cadernos.abralin.org/index.php/cadernos/announcement/view/82"
+    },
+    {
+      "date": "",
+      "title": "Read more",
+      "url": "https://cadernos.abralin.org/index.php/cadernos/announcement/view/81"
+    },
+    {
+      "date": "",
+      "title": "Read more",
+      "url": "https://cadernos.abralin.org/index.php/cadernos/announcement/view/80"
+    },
+    {
+      "date": "",
+      "title": "Read more",
+      "url": "https://cadernos.abralin.org/index.php/cadernos/announcement/view/79"
+    }
   ]
 }

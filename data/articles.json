@@ -1,41 +1,117 @@
 {
-  "updatedAt": "2026-09-28T00:00:00Z",
+  "updatedAt": "2026-09-29T07:03:24Z",
   "source": "https://cadernos.abralin.org/index.php/cadernos/oai",
   "articles": [
     {
       "date": "2026-09-23",
       "title": "Manuel Said Ali’s Nova Grammatica Alleman (1894) and the New Methods for Modern Foreign Languages (in Opposition to Classical Languages) in Brazil",
-      "authors": ["Jorge Viana de Moraes"],
-      "doi": "",
-      "url": "https://cadernos.abralin.org/index.php/cadernos/article/view/1004"
+      "authors": [
+        "Jorge Viana de Moraes"
+      ],
+      "doi": "10.25189/2675-4916.2026.v7.n5.id1004",
+      "url": "https://cadernos.abralin.org/index.php/cadernos/article/view/1004",
+      "titles": {
+        "en": "Manuel Said Ali’s Nova Grammatica Alleman (1894) and the New Methods for Modern Foreign Languages (in Opposition to Classical Languages) in Brazil",
+        "pt": "A A Nova Grammatica Alleman (1894) de Manuel Said Ali e os novos métodos de línguas estrangeiras modernas (em oposição às línguas clássicas) no Brasil"
+      }
+    },
+    {
+      "date": "2026-09-21",
+      "title": "Usage-Based Theory and the Gestalt Language Processing: An Integrative Perspective On Language Processing",
+      "authors": [
+        "Alice Campião",
+        "Marina Leite Puglisi"
+      ],
+      "doi": "10.25189/2675-4916.2026.v7.n9.id974",
+      "url": "https://cadernos.abralin.org/index.php/cadernos/article/view/974",
+      "titles": {
+        "en": "Usage-Based Theory and the Gestalt Language Processing: An Integrative Perspective On Language Processing",
+        "pt": "Teoria Baseada no Uso e Processamento Gestalt de Linguagem: uma perspectiva integrativa no processamento de linguagem"
+      }
+    },
+    {
+      "date": "2026-09-21",
+      "title": "The Influence of Prosodic-Acoustic Features in Automatic Speech Recognition of Two Inland Brazilian Dialects: A Pilot Study",
+      "authors": [
+        "Leônidas Silva Jr.",
+        "Luciani Ester Tenani",
+        "João Marcelo Monte"
+      ],
+      "doi": "10.25189/2675-4916.2026.v7.n7.id1016",
+      "url": "https://cadernos.abralin.org/index.php/cadernos/article/view/1016",
+      "titles": {
+        "en": "The Influence of Prosodic-Acoustic Features in Automatic Speech Recognition of Two Inland Brazilian Dialects: A Pilot Study",
+        "pt": "A influência de parâmetros prosódico-acústicos no reconhecimento automático de fala em dois dialetos do interior brasileiro"
+      }
     },
     {
       "date": "2026-09-21",
       "title": "Speech Production in Child Language Development",
-      "authors": ["Janaina Weissheimer", "Natália Mota"],
-      "doi": "",
-      "url": "https://cadernos.abralin.org/index.php/cadernos/article/view/971"
+      "authors": [
+        "Janaina Weissheimer",
+        "Natalia Mota"
+      ],
+      "doi": "10.25189/2675-4916.2026.v7.n9.id971",
+      "url": "https://cadernos.abralin.org/index.php/cadernos/article/view/971",
+      "titles": {
+        "en": "Speech Production in Child Language Development",
+        "pt": "Produção oral no desenvolvimento da linguagem infantil"
+      }
     },
     {
       "date": "2026-09-21",
-      "title": "Exploring Unitary Distributives in Classical Nahuatl",
-      "authors": ["Rodrigo Herrera Jiménez", "Julia Pozas Loyo"],
-      "doi": "",
-      "url": "https://cadernos.abralin.org/index.php/cadernos/article/view/922"
+      "title": "Recent Advances in Neurobiological Domains: Statistical Learning and Predictive Processing for Language",
+      "authors": [
+        "Mirela Cunha Cardoso Ramacciotti"
+      ],
+      "doi": "10.25189/2675-4916.2026.v7.n9.id979",
+      "url": "https://cadernos.abralin.org/index.php/cadernos/article/view/979",
+      "titles": {
+        "en": "Recent Advances in Neurobiological Domains: Statistical Learning and Predictive Processing for Language",
+        "pt": "Avanços recentes em domínios neurobiológicos: aprendizagem estatística e processamento preditivo da linguagem"
+      }
     },
     {
       "date": "2026-09-21",
-      "title": "And the Flesh Was Made Word",
-      "authors": ["Fábio Lima"],
-      "doi": "",
-      "url": "https://cadernos.abralin.org/index.php/cadernos/article/view/890"
+      "title": "Geolinguistic Approaches to the Description of Brazilian Portuguese Varieties: : Contactual, Migrational, and Historical-Social Aspects",
+      "authors": [
+        "Amanda Chofard",
+        "Greize Alves da Silva",
+        "Romário Duarte Sanches"
+      ],
+      "doi": "10.25189/2675-4916.2026.v7.n8.id916",
+      "url": "https://cadernos.abralin.org/index.php/cadernos/article/view/916",
+      "titles": {
+        "en": "Geolinguistic Approaches to the Description of Brazilian Portuguese Varieties: : Contactual, Migrational, and Historical-Social Aspects",
+        "pt": "Abordagens geolinguísticas para descrição de variedades do português brasileiro: : aspectos contatuais, migracionais e histórico-sociais"
+      }
     },
     {
       "date": "2026-09-21",
-      "title": "Usage-Based Theory and the Gestalt Language Processing",
-      "authors": ["A. Campião", "M. L. Puglisi"],
-      "doi": "",
-      "url": "https://cadernos.abralin.org/index.php/cadernos/article/view/974"
+      "title": "Gender, Race and Social Class in Decolonial Critical Discourse Studies",
+      "authors": [
+        "Izabel Magalhães"
+      ],
+      "doi": "10.25189/2675-4916.2026.v7.n4.id888",
+      "url": "https://cadernos.abralin.org/index.php/cadernos/article/view/888",
+      "titles": {
+        "en": "Gender, Race and Social Class in Decolonial Critical Discourse Studies",
+        "pt": "Gênero, raça e classe social nos estudos críticos decoloniais do discurso"
+      }
+    },
+    {
+      "date": "2026-09-21",
+      "title": "Exploring Unitary Distributives in Classical Nahuatl: Key or Share Markers?",
+      "authors": [
+        "Rafael Herrera Jiménez",
+        "Julia Pozas Loyo"
+      ],
+      "doi": "10.25189/2675-4916.2026.v7.n1.id922",
+      "url": "https://cadernos.abralin.org/index.php/cadernos/article/view/922",
+      "titles": {
+        "en": "Exploring Unitary Distributives in Classical Nahuatl: Key or Share Markers?",
+        "pt": "Explorando os distributivos unitários no Náuatle clássico: marcadores de chave ou de parte distribuída?"
+      }
     }
   ]
 }
