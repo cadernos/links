@@ -36,15 +36,17 @@ async function authorized(request, env) {
   return secureEqual(token, env.ADMIN_PASSWORD);
 }
 function validatePayload(body) {
-  const text = typeof body.text === 'string' ? body.text.trim() : '';
+  const textPt = typeof body.textPt === 'string' ? body.textPt.trim() : '';
+  const textEn = typeof body.textEn === 'string' ? body.textEn.trim() : '';
   const url = typeof body.url === 'string' ? body.url.trim() : '';
   const expiresAt = body.expiresAt ? String(body.expiresAt) : null;
-  if (!text || text.length > 240) return {error:'Texto inválido (máximo 240 caracteres).'};
+  if (!textPt || textPt.length > 240) return {error:'Texto em português inválido (máximo 240 caracteres).'};
+  if (!textEn || textEn.length > 240) return {error:'Texto em inglês inválido (máximo 240 caracteres).'};
   let parsed;
   try { parsed = new URL(url); } catch { return {error:'URL inválida.'}; }
   if (parsed.protocol !== 'https:') return {error:'Use um link https://'};
   if (expiresAt && !/^\d{4}-\d{2}-\d{2}$/.test(expiresAt)) return {error:'Data de expiração inválida.'};
-  return {featured:{text, url:parsed.toString(), expiresAt, updatedAt:new Date().toISOString()}};
+  return {featured:{textPt, textEn, url:parsed.toString(), expiresAt, updatedAt:new Date().toISOString()}};
 }
 async function requireWriteAuth(request, env) {
   const state = await blocked(request, env);
