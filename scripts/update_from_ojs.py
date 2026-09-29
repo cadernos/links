@@ -111,7 +111,7 @@ def normalize_creator(value: str) -> str:
     return value
 
 
-def harvest_articles(limit=8):
+def harvest_articles(limit=10):
     since = (date.today() - timedelta(days=370)).isoformat()
     params = {"verb": "ListRecords", "metadataPrefix": "oai_dc", "from": since}
     url = OAI_BASE + "?" + urllib.parse.urlencode(params)
@@ -174,27 +174,82 @@ def parse_announcement_page(html: bytes, base_url: str):
     soup = BeautifulSoup(html.decode("utf-8", errors="replace"), "html.parser")
     items = []
     seen = set()
-    candidates = soup.select("article.obj_announcement_summary")
-    if not candidates:
-        candidates = [a.parent for a in soup.find_all("a", href=re.compile(r"/announcement/view/\d+"))]
 
-    for node in candidates:
-        link = node.find("a", href=re.compile(r"/announcement/view/\d+")) if hasattr(node, "find") else None
-        if not link:
-            continue
+    # OJS 3 themes vary the wrapper tag/class, so find each announcement link
+    # and then walk up to the nearest summary/card-like container.
+    links = soup.find_all("a", href=re.compile(r"/announcement/view/\d+"))
+    for link in links:
         href = urllib.parse.urljoin(base_url, link.get("href", ""))
         if not href or href in seen:
             continue
-        seen.add(href)
-        title = " ".join(link.get_text(" ", strip=True).split())
-        date_node = node.select_one(".date") if hasattr(node, "select_one") else None
-        date_text = date_node.get_text(" ", strip=True) if date_node else node.get_text(" ", strip=True)
-        m = re.search(r"(\d{1,2})[./-](\d{1,2})[./-](\d{4})", date_text)
+
+        link_text = " ".join(link.get_text(" ", strip=True).split())
+        # Ignore auxiliary "Read more"/"Leia mais" links until we find the
+        # matching card title in the same container.
+        node = link
+        for _ in range(5):
+            parent = getattr(node, "parent", None)
+            if not parent:
+                break
+            node = parent
+            classes = set(node.get("class", []) if hasattr(node, "get") else [])
+            if (
+                any("announcement" in cls or "summary" in cls for cls in classes)
+                or getattr(node, "name", "") in {"article", "li"}
+            ):
+                break
+
+        title = ""
+        if hasattr(node, "select_one"):
+            title_node = (
+                node.select_one(".title")
+                or node.select_one("h2")
+                or node.select_one("h3")
+                or node.select_one("h4")
+            )
+            if title_node:
+                title = " ".join(title_node.get_text(" ", strip=True).split())
+
+        if not title or title.lower() in {"read more", "leia mais", "saiba mais"}:
+            # Prefer a non-generic link text within the same card.
+            for candidate in node.find_all("a", href=re.compile(r"/announcement/view/\d+")) if hasattr(node, "find_all") else []:
+                candidate_text = " ".join(candidate.get_text(" ", strip=True).split())
+                if candidate_text and candidate_text.lower() not in {"read more", "leia mais", "saiba mais"}:
+                    title = candidate_text
+                    break
+
+        if not title or title.lower() in {"read more", "leia mais", "saiba mais"}:
+            # Last resort: derive title from nearby heading text.
+            for tag_name in ("h1", "h2", "h3", "h4", "strong"):
+                heading = node.find(tag_name) if hasattr(node, "find") else None
+                if heading:
+                    candidate_text = " ".join(heading.get_text(" ", strip=True).split())
+                    if candidate_text:
+                        title = candidate_text
+                        break
+
+        date_node = None
+        if hasattr(node, "select_one"):
+            date_node = (
+                node.select_one(".date")
+                or node.select_one(".published")
+                or node.select_one("time")
+            )
+        date_text = date_node.get_text(" ", strip=True) if date_node else (node.get_text(" ", strip=True) if hasattr(node, "get_text") else "")
+
         iso = ""
-        if m:
-            d, mo, y = map(int, m.groups())
+        m_iso = re.search(r"\b(\d{4})-(\d{1,2})-(\d{1,2})\b", date_text)
+        if m_iso:
+            y, mo, d = map(int, m_iso.groups())
             iso = f"{y:04d}-{mo:02d}-{d:02d}"
-        if title:
+        else:
+            m = re.search(r"(\d{1,2})[./-](\d{1,2})[./-](\d{4})", date_text)
+            if m:
+                d, mo, y = map(int, m.groups())
+                iso = f"{y:04d}-{mo:02d}-{d:02d}"
+
+        if title and title.lower() not in {"read more", "leia mais", "saiba mais"}:
+            seen.add(href)
             items.append({"date": iso, "title": title, "url": href})
     return items
 
