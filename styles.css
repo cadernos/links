@@ -183,6 +183,12 @@ footer,
 .article-title { display: block; font-size: clamp(1.15rem, 2.7vw, 1.72rem); font-weight: 600; line-height: 1.05; letter-spacing: -.035em; }
 .article-author { display: block; margin: 9px 0 0; color: var(--muted); font-size: .88rem; }
 .article-doi { display: block; margin: 6px 0 0; color: var(--muted); font-family: ui-monospace, "SFMono-Regular", Consolas, monospace; font-size: .70rem; }
+.article-arrow,
+.news-card > span:last-child,
+.social-arrow {
+  font-family: ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-variant-emoji: text;
+}
 .article-arrow { font-size: 1.3rem; }
 .article-card:hover .article-title,
 .news-card:hover .news-title { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
@@ -241,16 +247,35 @@ footer p { margin: 0; text-align: right; }
   .page-shell { width: min(100% - 18px, var(--max)); }
   .site-header {
     min-height: 0;
-    align-items: flex-start;
+    align-items: stretch;
     padding: 15px 0 14px;
     gap: 10px;
   }
-  .brand img { width: min(66vw, 258px); }
-  .header-actions { gap: 0; padding-top: 1px; }
+  .brand {
+    align-items: stretch;
+  }
+  .brand img {
+    width: min(66vw, 258px);
+    height: 100%;
+    object-fit: contain;
+    object-position: left center;
+  }
+  .header-actions {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    align-self: stretch;
+    gap: 0;
+    padding-top: 0;
+  }
   .header-control {
-    min-height: 34px;
+    min-height: 0;
+    height: 100%;
     padding: 0 9px;
     font-size: .61rem;
+  }
+  .header-control + .header-control {
+    border-left: 1px solid var(--ink-dark);
+    border-top: 0;
   }
   .header-submit { min-width: 78px; }
 
