@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#ead1d8" />
+  <meta name="description" content="Links, artigos e notícias recentes de Cadernos de Linguística." />
+  <title>Cadernos de Linguística — Links</title>
+  <link rel="icon" href="./assets/CadLin_logo_wordmark.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="https://cadernos.abralin.org/" target="_blank" rel="noopener" aria-label="Abrir o site de Cadernos de Linguística">
+        <img src="./assets/CadLin_logo_wordmark.svg" alt="Cadernos de Linguística" />
+      </a>
+      <div class="header-actions">
+        <button id="langToggle" class="header-control" type="button" aria-label="Alternar idioma">EN</button>
+        <a class="header-control header-submit" href="https://cadernos.abralin.org/index.php/cadernos/about/submissions" target="_blank" rel="noopener" data-i18n="submit">SUBMETA ↗</a>
+      </div>
+    </header>
+    <nav id="socialLinks" class="social-grid" aria-label="Redes e canais oficiais"></nav>
+    <main>
+      <section class="intro" aria-labelledby="intro-title">
+        <p class="eyebrow" data-i18n="journalLabel">PERIÓDICO DIAMOND OPEN ACCESS · ABRALIN</p>
+        <h1 id="intro-title" data-i18n="introTitle">Linguística aberta, rigorosa e acessível.</h1>
+        <p class="intro-text" data-i18n="introText">Acesso rápido às publicações, notícias, chamadas e redes de Cadernos de Linguística.</p>
+      </section>
+      <section id="featuredSection" class="featured" aria-labelledby="featured-heading" hidden>
+        <div class="section-kicker"><span data-i18n="featured">DESTAQUE</span><span class="rule"></span></div>
+        <a id="featuredCard" class="featured-card" href="#" target="_blank" rel="noopener">
+          <div class="featured-meta"><span data-i18n="featuredLabel">EM DESTAQUE</span><span id="featuredExpiry"></span></div>
+          <h2 id="featured-heading"></h2>
+          <span class="read-link" data-i18n="readMore">ABRIR ↗</span>
+        </a>
+      </section>
+      <section class="content-section" aria-labelledby="articles-heading">
+        <div class="section-kicker"><span id="articles-heading" data-i18n="recentArticles">PUBLICADOS RECENTEMENTE</span><span class="rule"></span></div>
+        <div id="articlesList" class="article-list" aria-live="polite"></div>
+        <a class="text-link" href="https://cadernos.abralin.org/index.php/cadernos/issue/archive" target="_blank" rel="noopener" data-i18n="allArticles">VER TODOS OS ARTIGOS ↗</a>
+      </section>
+      <section class="content-section" aria-labelledby="news-heading">
+        <div class="section-kicker"><span id="news-heading" data-i18n="newsCalls">NOTÍCIAS & CHAMADAS</span><span class="rule"></span></div>
+        <div id="newsList" class="news-list" aria-live="polite"></div>
+        <a class="text-link" href="https://cadernos.abralin.org/index.php/cadernos/announcement" target="_blank" rel="noopener" data-i18n="allNews">VER TODAS AS NOTÍCIAS ↗</a>
+      </section>
+      <section class="cta-grid" aria-label="Acessos principais">
+        <a class="cta cta-dark" href="https://cadernos.abralin.org/index.php/cadernos/about/submissions" target="_blank" rel="noopener"><span data-i18n="submitPaper">SUBMETA SEU ARTIGO</span><strong>↗</strong></a>
+        <a class="cta" href="https://cadernos.abralin.org/" target="_blank" rel="noopener"><span data-i18n="journalSite">SITE DA REVISTA</span><strong>↗</strong></a>
+        <a class="cta" href="https://substack.com/@cadlin" target="_blank" rel="noopener"><span data-i18n="newsletter">ASSINE A NEWSLETTER</span><strong>↗</strong></a>
+      </section>
+    </main>
+    <footer>
+      <div><span>CADERNOS DE LINGUÍSTICA</span><span>ISSN 2675-4916</span></div>
+      <p data-i18n="footer">Um periódico da Associação Brasileira de Linguística · Abralin</p>
+    </footer>
+  </div>
+  <script src="./app.js" defer></script>
+</body>
+</html>
