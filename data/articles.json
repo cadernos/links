@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-29T07:03:24Z",
+  "updatedAt": "2026-09-29T08:10:22Z",
   "source": "https://cadernos.abralin.org/index.php/cadernos/oai",
   "articles": [
     {
@@ -111,6 +111,32 @@
       "titles": {
         "en": "Exploring Unitary Distributives in Classical Nahuatl: Key or Share Markers?",
         "pt": "Explorando os distributivos unitários no Náuatle clássico: marcadores de chave ou de parte distribuída?"
+      }
+    },
+    {
+      "date": "2026-09-21",
+      "title": "And the Flesh Was Made Word: On Language, Racial Violence, and Lived-Writing as the Creation of Self/Us",
+      "authors": [
+        "Fátima Lima"
+      ],
+      "doi": "10.25189/2675-4916.2026.v7.n4.id890",
+      "url": "https://cadernos.abralin.org/index.php/cadernos/article/view/890",
+      "titles": {
+        "en": "And the Flesh Was Made Word: On Language, Racial Violence, and Lived-Writing as the Creation of Self/Us",
+        "pt": "E a carne se fez verbo: linguagem, violência racial e a escrevivência como criação de si/nós"
+      }
+    },
+    {
+      "date": "2026-07-17",
+      "title": "The Portuguese Language Teaching in the History of Brazilian Linguistics",
+      "authors": [
+        "Leonardo Gueiros"
+      ],
+      "doi": "10.25189/2675-4916.2026.v7.n5.id1003",
+      "url": "https://cadernos.abralin.org/index.php/cadernos/article/view/1003",
+      "titles": {
+        "en": "The Portuguese Language Teaching in the History of Brazilian Linguistics",
+        "pt": "O ensino de Língua Portuguesa na História da Linguística brasileira"
       }
     }
   ]
