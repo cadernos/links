@@ -29,20 +29,24 @@ function renderCurrent() {
   root.innerHTML = '';
   const meta = document.createElement('span');
   meta.textContent = current.expiresAt ? `EXPIRA EM ${new Intl.DateTimeFormat('pt-BR').format(new Date(`${current.expiresAt}T12:00:00`))}` : 'SEM DATA DE EXPIRAÇÃO';
-  const title = document.createElement('strong');
-  title.textContent = current.text;
+  const titlePt = document.createElement('strong');
+  titlePt.textContent = `PT · ${current.textPt || current.text || ''}`;
+  const titleEn = document.createElement('strong');
+  titleEn.textContent = `EN · ${current.textEn || current.text || ''}`;
   const link = document.createElement('a');
   link.href = current.url;
   link.target = '_blank';
   link.rel = 'noopener';
   link.textContent = 'Abrir link ↗';
-  root.append(meta, title, link);
+  root.append(meta, titlePt, titleEn, link);
 }
 function fillForm(item) {
-  $('#text').value = item?.text || '';
+  $('#textPt').value = item?.textPt || item?.text || '';
+  $('#textEn').value = item?.textEn || '';
   $('#url').value = item?.url || '';
   $('#expiresAt').value = item?.expiresAt || '';
-  $('#charCount').textContent = $('#text').value.length;
+  $('#charCountPt').textContent = $('#textPt').value.length;
+  $('#charCountEn').textContent = $('#textEn').value.length;
 }
 async function loadCurrent() {
   const status = $('#connectionStatus');
@@ -62,19 +66,21 @@ async function loadCurrent() {
     setMessage('A API administrativa ainda não está configurada neste ambiente.', 'bad');
   }
 }
-$('#text').addEventListener('input', () => { $('#charCount').textContent = $('#text').value.length; });
+$('#textPt').addEventListener('input', () => { $('#charCountPt').textContent = $('#textPt').value.length; });
+$('#textEn').addEventListener('input', () => { $('#charCountEn').textContent = $('#textEn').value.length; });
 $('#featuredForm').addEventListener('submit', async (event) => {
   event.preventDefault();
   setMessage();
-  const text = $('#text').value.trim();
+  const textPt = $('#textPt').value.trim();
+  const textEn = $('#textEn').value.trim();
   const url = $('#url').value.trim();
   const expiresAt = $('#expiresAt').value || null;
   const password = $('#password').value;
-  if (!text || !url || !password) { setMessage('Preencha texto, link e senha.', 'bad'); return; }
+  if (!textPt || !textEn || !url || !password) { setMessage('Preencha os textos em português e inglês, o link e a senha.', 'bad'); return; }
   if (!validHttps(url)) { setMessage('Informe um link válido começando por https://', 'bad'); return; }
   setBusy(true);
   try {
-    const r = await fetch('../api/featured', {method:'POST', headers:authHeaders(), body:JSON.stringify({text,url,expiresAt})});
+    const r = await fetch('../api/featured', {method:'POST', headers:authHeaders(), body:JSON.stringify({textPt,textEn,url,expiresAt})});
     const json = await r.json().catch(() => ({}));
     if (!r.ok) throw new Error(json.error || `Erro ${r.status}`);
     current = json.featured;
