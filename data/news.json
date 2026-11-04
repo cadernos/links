@@ -1,7 +1,12 @@
 {
-  "updatedAt": "2026-09-29T08:10:23Z",
+  "updatedAt": "2026-11-04T15:27:15Z",
   "source": "https://cadernos.abralin.org/index.php/cadernos/announcement",
   "news": [
+    {
+      "date": "2026-11-04",
+      "title": "Call: Polysynthesis in South America",
+      "url": "https://cadernos.abralin.org/index.php/cadernos/announcement/view/85"
+    },
     {
       "date": "2026-07-19",
       "title": "Cadernos de Linguística joins the Open Journals Collective",
@@ -26,11 +31,6 @@
       "date": "2026-03-14",
       "title": "Article published in Cadernos de Linguística receives the Abralin Award",
       "url": "https://cadernos.abralin.org/index.php/cadernos/announcement/view/80"
-    },
-    {
-      "date": "2026-03-09",
-      "title": "Call: Diachronic Construction Grammar",
-      "url": "https://cadernos.abralin.org/index.php/cadernos/announcement/view/79"
     }
   ]
 }
