@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-06T15:04:24Z",
+  "updatedAt": "2026-11-15T14:46:20Z",
   "source": "https://cadernos.abralin.org/index.php/cadernos/oai",
   "articles": [
     {
@@ -13,20 +13,6 @@
       "titles": {
         "en": "Manuel Said Ali’s Nova Grammatica Alleman (1894) and the New Methods for Modern Foreign Languages (in Opposition to Classical Languages) in Brazil",
         "pt": "A A Nova Grammatica Alleman (1894) de Manuel Said Ali e os novos métodos de línguas estrangeiras modernas (em oposição às línguas clássicas) no Brasil"
-      }
-    },
-    {
-      "date": "2026-09-21",
-      "title": "Usage-Based Theory and the Gestalt Language Processing: An Integrative Perspective On Language Processing",
-      "authors": [
-        "Alice Campião",
-        "Marina Leite Puglisi"
-      ],
-      "doi": "10.25189/2675-4916.2026.v7.n9.id974",
-      "url": "https://cadernos.abralin.org/index.php/cadernos/article/view/974",
-      "titles": {
-        "en": "Usage-Based Theory and the Gestalt Language Processing: An Integrative Perspective On Language Processing",
-        "pt": "Teoria Baseada no Uso e Processamento Gestalt de Linguagem: uma perspectiva integrativa no processamento de linguagem"
       }
     },
     {
@@ -137,6 +123,21 @@
       "titles": {
         "en": "The Portuguese Language Teaching in the History of Brazilian Linguistics",
         "pt": "O ensino de Língua Portuguesa na História da Linguística brasileira"
+      }
+    },
+    {
+      "date": "2026-07-17",
+      "title": "Social and Discursive Action of the Booklet “There Is No Humanized Prison!” by the National Association of Travestis and Transsexuals (ANTRA) in Combating Transphobia",
+      "authors": [
+        "Marcos Antonio Rodrigues Nascimento",
+        "Priscilla Araújo de Figueiredo Freitas",
+        "Viviane Cristina Vieira"
+      ],
+      "doi": "10.25189/2675-4916.2026.v7.n4.id894",
+      "url": "https://cadernos.abralin.org/index.php/cadernos/article/view/894",
+      "titles": {
+        "en": "Social and Discursive Action of the Booklet “There Is No Humanized Prison!” by the National Association of Travestis and Transsexuals (ANTRA) in Combating Transphobia",
+        "pt": "Ação social e discursiva da Cartilha “Não existe cadeia humanizada!” da Associação Nacional de Travestis e Transexuais no combate à transfobia (ANTRA)"
       }
     }
   ]
