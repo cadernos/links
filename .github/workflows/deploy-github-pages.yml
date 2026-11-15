@@ -33,7 +33,7 @@ jobs:
         run: |
           test -s public/index.html
           test -s public/protocolo/index.html
-          grep -q 'Protocolo operacional' public/protocolo/index.html
+          grep -q 'Encontre a próxima ação' public/protocolo/index.html
           test -s public/protocolo/situacoes/index.html
           test -s public/protocolo/projetos/index.html
           test -s public/protocolo/normas/1/index.html
@@ -58,7 +58,7 @@ jobs:
           TARGET="${SITE_URL%/}/protocolo/"
           echo "Verificando URL publica: ${TARGET}"
           curl --fail --location --silent --show-error --retry 8 --retry-delay 4 --retry-all-errors --output /tmp/cadlin-protocolo.html "${TARGET}"
-          grep -q 'Protocolo operacional' /tmp/cadlin-protocolo.html
+          grep -q 'Encontre a próxima ação' /tmp/cadlin-protocolo.html
           curl --fail --location --silent --show-error --retry 8 --retry-delay 4 --retry-all-errors --output /tmp/cadlin-situacoes.html "${TARGET}situacoes/"
           grep -q 'id="situacoes"' /tmp/cadlin-situacoes.html
           curl --fail --location --silent --show-error --retry 8 --retry-delay 4 --retry-all-errors --output /tmp/cadlin-projetos.html "${TARGET}projetos/"
