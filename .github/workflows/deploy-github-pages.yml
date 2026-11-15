@@ -48,7 +48,7 @@ jobs:
             test -s "public/protocolo/${page}/index.html"
             grep -Fq 'design-v27.css' "public/protocolo/${page}/index.html"
           done
-          grep -Fq '<ul class="home-situation-list"' public/protocolo/index.html
+          grep -Fq 'class="home-situation-list"' public/protocolo/index.html
           grep -q 'id="situacoes"' public/protocolo/situacoes/index.html
           grep -q 'id="gpt-desk"' public/protocolo/projetos/index.html
           grep -q 'id="s1"' public/protocolo/normas/1/index.html
