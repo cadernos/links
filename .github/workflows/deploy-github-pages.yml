@@ -1,0 +1,40 @@
+name: Publicar site e protocolo no GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages-deployment
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Obter arquivos do repositorio
+        uses: actions/checkout@v4
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Preparar site estatico
+        run: python scripts/build_public.py
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Carregar artefato publico
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: public
+      - name: Publicar GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
