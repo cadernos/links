@@ -44,6 +44,14 @@ jobs:
           grep -Fq 'style-v25.css' public/protocolo/index.html
           test -s public/protocolo/site-v23.js
           test -s public/protocolo/search-index-v23.js
+          test -s public/protocolo/design-v26.css
+          test -s public/protocolo/site-v26.js
+          test -s public/protocolo/search-v26.js
+          grep -Fq 'design-v26.css' public/protocolo/index.html
+          for page in roteiro situacoes app projetos prazos ajuda normas normas/1 normas/2 normas/3 normas/4 normas/5 normas/6 normas/7 normas/8 normas/completo; do
+            test -s "public/protocolo/${page}/index.html"
+            grep -Fq 'design-v26.css' "public/protocolo/${page}/index.html"
+          done
           grep -Fq 'style-v23.css' public/protocolo/index.html
           grep -Fq '<ul class="home-situation-list"' public/protocolo/index.html
           grep -q 'id="situacoes"' public/protocolo/situacoes/index.html
@@ -70,6 +78,11 @@ jobs:
           grep -Fq 'style-v25.css' /tmp/cadlin-protocolo.html
           curl --fail --location --silent --show-error --retry 8 --retry-delay 4 --retry-all-errors --output /tmp/cadlin-style-v23.css "${TARGET}style-v23.css"
           grep -Fq '.home-situation-list>li>a' /tmp/cadlin-style-v23.css
+          curl --fail --location --silent --show-error --retry 8 --retry-delay 4 --retry-all-errors --output /tmp/cadlin-design-v26.css "${TARGET}design-v26.css"
+          grep -Fq -- '--type-page' /tmp/cadlin-design-v26.css
+          grep -Fq 'design-v26.css' /tmp/cadlin-protocolo.html
+          curl --fail --location --silent --show-error --retry 8 --retry-delay 4 --retry-all-errors --output /tmp/cadlin-norma-2.html "${TARGET}normas/2/"
+          grep -Fq 'normative-page-title' /tmp/cadlin-norma-2.html
           curl --fail --location --silent --show-error --retry 8 --retry-delay 4 --retry-all-errors --output /tmp/cadlin-situacoes.html "${TARGET}situacoes/"
           grep -q 'id="situacoes"' /tmp/cadlin-situacoes.html
           curl --fail --location --silent --show-error --retry 8 --retry-delay 4 --retry-all-errors --output /tmp/cadlin-projetos.html "${TARGET}projetos/"
