@@ -5,7 +5,7 @@ import shutil
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "public"
 FILES = ["index.html", "styles.css", "app.js", "_headers", ".nojekyll"]
-DIRS = ["assets", "data", "admin"]
+DIRS = ["assets", "data", "admin", "protocolo"]
 
 if OUT.exists():
     shutil.rmtree(OUT)
