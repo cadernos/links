@@ -35,3 +35,10 @@ Somente:
 Consulte `DEPLOY.md` para a configuração inicial.
 
 <!-- Trigger de novo deployment de produção após configuração do KV. -->
+
+
+## Protocolo operacional — Guilherme e Raul
+
+O HTML do protocolo está em `protocolo/index.html`. O fluxo `.github/workflows/deploy-github-pages.yml` publica a versão do repositório no GitHub Pages em `https://cadernos.github.io/links/protocolo/` quando a fonte do Pages estiver configurada como GitHub Actions.
+
+Atualizações aprovadas no documento mestre do Google Drive **não** sincronizam automaticamente com o GitHub: é preciso atualizar `protocolo/index.html` neste repositório. Cada commit na branch `main` aciona o workflow de publicação.
