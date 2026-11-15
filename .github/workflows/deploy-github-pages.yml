@@ -39,6 +39,11 @@ jobs:
           test -s public/protocolo/normas/1/index.html
           test -s public/protocolo/style.css
           test -s public/protocolo/site.js
+          test -s public/protocolo/style-v23.css
+          test -s public/protocolo/site-v23.js
+          test -s public/protocolo/search-index-v23.js
+          grep -Fq 'style-v23.css' public/protocolo/index.html
+          grep -Fq '<ul class="home-situation-list"' public/protocolo/index.html
           grep -q 'id="situacoes"' public/protocolo/situacoes/index.html
           grep -q 'id="gpt-desk"' public/protocolo/projetos/index.html
           grep -q 'id="s1"' public/protocolo/normas/1/index.html
@@ -59,6 +64,9 @@ jobs:
           echo "Verificando URL publica: ${TARGET}"
           curl --fail --location --silent --show-error --retry 8 --retry-delay 4 --retry-all-errors --output /tmp/cadlin-protocolo.html "${TARGET}"
           grep -q 'Encontre a próxima ação' /tmp/cadlin-protocolo.html
+          grep -Fq 'style-v23.css' /tmp/cadlin-protocolo.html
+          curl --fail --location --silent --show-error --retry 8 --retry-delay 4 --retry-all-errors --output /tmp/cadlin-style-v23.css "${TARGET}style-v23.css"
+          grep -Fq '.home-situation-list>li>a' /tmp/cadlin-style-v23.css
           curl --fail --location --silent --show-error --retry 8 --retry-delay 4 --retry-all-errors --output /tmp/cadlin-situacoes.html "${TARGET}situacoes/"
           grep -q 'id="situacoes"' /tmp/cadlin-situacoes.html
           curl --fail --location --silent --show-error --retry 8 --retry-delay 4 --retry-all-errors --output /tmp/cadlin-projetos.html "${TARGET}projetos/"
