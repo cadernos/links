@@ -40,6 +40,8 @@ jobs:
           test -s public/protocolo/style.css
           test -s public/protocolo/site.js
           test -s public/protocolo/style-v23.css
+          test -s public/protocolo/style-v25.css
+          grep -Fq 'style-v25.css' public/protocolo/index.html
           test -s public/protocolo/site-v23.js
           test -s public/protocolo/search-index-v23.js
           grep -Fq 'style-v23.css' public/protocolo/index.html
@@ -65,6 +67,7 @@ jobs:
           curl --fail --location --silent --show-error --retry 8 --retry-delay 4 --retry-all-errors --output /tmp/cadlin-protocolo.html "${TARGET}"
           grep -q 'Selecione seu perfil' /tmp/cadlin-protocolo.html
           grep -Fq 'style-v23.css' /tmp/cadlin-protocolo.html
+          grep -Fq 'style-v25.css' /tmp/cadlin-protocolo.html
           curl --fail --location --silent --show-error --retry 8 --retry-delay 4 --retry-all-errors --output /tmp/cadlin-style-v23.css "${TARGET}style-v23.css"
           grep -Fq '.home-situation-list>li>a' /tmp/cadlin-style-v23.css
           curl --fail --location --silent --show-error --retry 8 --retry-delay 4 --retry-all-errors --output /tmp/cadlin-situacoes.html "${TARGET}situacoes/"
