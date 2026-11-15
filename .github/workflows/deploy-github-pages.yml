@@ -34,7 +34,14 @@ jobs:
           test -s public/index.html
           test -s public/protocolo/index.html
           grep -q 'Protocolo operacional' public/protocolo/index.html
-          grep -q 'id="situacoes"' public/protocolo/index.html
+          test -s public/protocolo/situacoes/index.html
+          test -s public/protocolo/projetos/index.html
+          test -s public/protocolo/normas/1/index.html
+          test -s public/protocolo/style.css
+          test -s public/protocolo/site.js
+          grep -q 'id="situacoes"' public/protocolo/situacoes/index.html
+          grep -q 'id="gpt-desk"' public/protocolo/projetos/index.html
+          grep -q 'id="s1"' public/protocolo/normas/1/index.html
       - name: Configurar GitHub Pages
         uses: actions/configure-pages@v5
       - name: Carregar artefato publico
@@ -52,5 +59,8 @@ jobs:
           echo "Verificando URL publica: ${TARGET}"
           curl --fail --location --silent --show-error --retry 8 --retry-delay 4 --retry-all-errors --output /tmp/cadlin-protocolo.html "${TARGET}"
           grep -q 'Protocolo operacional' /tmp/cadlin-protocolo.html
-          grep -q 'id="situacoes"' /tmp/cadlin-protocolo.html
+          curl --fail --location --silent --show-error --retry 8 --retry-delay 4 --retry-all-errors --output /tmp/cadlin-situacoes.html "${TARGET}situacoes/"
+          grep -q 'id="situacoes"' /tmp/cadlin-situacoes.html
+          curl --fail --location --silent --show-error --retry 8 --retry-delay 4 --retry-all-errors --output /tmp/cadlin-projetos.html "${TARGET}projetos/"
+          grep -q 'id="gpt-desk"' /tmp/cadlin-projetos.html
           echo "Verificacao publica concluida com sucesso"
