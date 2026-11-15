@@ -29,6 +29,12 @@ jobs:
           python-version: '3.12'
       - name: Preparar site estatico
         run: python scripts/build_public.py
+      - name: Conferir os arquivos do site e do protocolo
+        run: |
+          test -s public/index.html
+          test -s public/protocolo/index.html
+          grep -q 'Protocolo operacional' public/protocolo/index.html
+          grep -q 'id="situacoes"' public/protocolo/index.html
       - name: Configurar GitHub Pages
         uses: actions/configure-pages@v5
       - name: Carregar artefato publico
@@ -38,3 +44,13 @@ jobs:
       - name: Publicar GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+      - name: Testar o protocolo no endereco publico
+        env:
+          SITE_URL: ${{ steps.deployment.outputs.page_url }}
+        run: |
+          TARGET="${SITE_URL%/}/protocolo/"
+          echo "Verificando URL publica: ${TARGET}"
+          curl --fail --location --silent --show-error --retry 8 --retry-delay 4 --retry-all-errors --output /tmp/cadlin-protocolo.html "${TARGET}"
+          grep -q 'Protocolo operacional' /tmp/cadlin-protocolo.html
+          grep -q 'id="situacoes"' /tmp/cadlin-protocolo.html
+          echo "Verificacao publica concluida com sucesso"
